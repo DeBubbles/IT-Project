@@ -5,31 +5,28 @@ body {
     font-family: "Roboto", sans-serif;
     background-color: #878c80;
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     figure {
-      display: inline-block;
-      vertical-align: middle;
       img {
         width: 75%;
-        margin-left: 2%;
       }
     }
-    h1 {
-      display: inline-block;
-      vertical-align: middle;
-      font-size: 36pt;
-      display: inline;
-    }
     nav {
-      vertical-align: middle;
+      margin-right: 3%;
       ul {
-        list-style-type: none;
-        text-align: right;
+        display: flex;
+        gap: 15px;
         li {
-          margin-left: 1%;
           a {
             color: white;
             font-size: 16pt;
+            padding: 10%;
             text-decoration: none;
+          }
+          #active {
+            border-bottom: #4f5954 solid 2px;
           }
         }
       }
