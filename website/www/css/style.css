@@ -1,0 +1,18 @@
+body header h1 {
+  float: left;
+}
+
+body header nav ul {
+  list-style-type: none;
+}
+
+body header nav ul li {
+  float: left;
+  margin-left: 1%;
+  display: inline;
+}
+
+body header nav ul li a {
+  text-decoration: none;
+}
+/*# sourceMappingURL=style.css.map */

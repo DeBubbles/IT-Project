@@ -1,0 +1,24 @@
+body {
+  header {
+    figure {
+      img {
+      }
+    }
+    h1 {
+      float: left;
+    }
+    nav {
+      ul {
+        list-style-type: none;
+        li {
+          float: left;
+          margin-left: 1%;
+          display: inline;
+          a {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
