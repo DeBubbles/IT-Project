@@ -1,20 +1,34 @@
 body {
+  font-family: "Nunito", sans-serif;
+  background-color: #262621;
   header {
+    font-family: "Roboto", sans-serif;
+    background-color: #878c80;
+    color: white;
     figure {
+      display: inline-block;
+      vertical-align: middle;
       img {
+        width: 75%;
+        margin-left: 2%;
       }
     }
     h1 {
-      float: left;
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 36pt;
+      display: inline;
     }
     nav {
+      vertical-align: middle;
       ul {
         list-style-type: none;
+        text-align: right;
         li {
-          float: left;
           margin-left: 1%;
-          display: inline;
           a {
+            color: white;
+            font-size: 16pt;
             text-decoration: none;
           }
         }
