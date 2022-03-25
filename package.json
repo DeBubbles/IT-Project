@@ -18,5 +18,8 @@
   "homepage": "https://github.com/DeBubbles/IT-Project#readme",
   "devDependencies": {
     "@types/node": "^17.0.23"
+  },
+  "dependencies": {
+    "express": "^4.17.3"
   }
 }
