@@ -48,7 +48,7 @@ body #card-grid section h1 {
   font-size: 24pt;
 }
 
-body #card-grid section:last-of-type {
+body #card-grid section:first-of-type {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -57,6 +57,42 @@ body #card-grid section:last-of-type {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+body #card-grid section:first-of-type input {
+  margin: 2% 1%;
+  padding: 10px;
+}
+
+body #card-grid section:first-of-type input[type="text"] {
+  width: 20%;
+}
+
+body #card-grid section:first-of-type input[type="submit"] {
+  background-color: #4f5954;
+  border: 0;
+  color: white;
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
+  font-weight: bold;
+}
+
+body #card-grid section:first-of-type input[type="submit"]:hover {
+  background-color: #878c80;
+  color: black;
+}
+
+body #card-grid section:last-of-type {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 1240px;
+  margin: 0 auto;
 }
 
 body #card-grid section:last-of-type img {

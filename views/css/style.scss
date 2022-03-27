@@ -38,10 +38,35 @@ body {
         font-size: 24pt;
       }
     }
-    section:last-of-type {
+    section:first-of-type {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      input {
+        margin: 2% 1%;
+        padding: 10px;
+      }
+      input[type="text"] {
+        width: 20%;
+      }
+      input[type="submit"] {
+        background-color: #4f5954;
+        border: 0;
+        color: white;
+        transition: 0.15s;
+        font-weight: bold;
+      }
+      input[type="submit"]:hover {
+        background-color: #878c80;
+        color: black;
+      }
+    }
+    section:last-of-type {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1240px;
+      margin: 0 auto;
       img {
         margin: 1% 0%;
       }

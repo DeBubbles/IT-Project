@@ -23,7 +23,6 @@ app.get("/", async function (req: any, res: any) {
       }
     }
   }
-  console.log(images);
 
   res.type("text/html");
   res.render("index", {
