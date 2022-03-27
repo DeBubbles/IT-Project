@@ -30,4 +30,19 @@
       </ul>
     </nav>
   </header>
+  <main id="card-grid">
+    <section>
+      <input type="text" placeholder="Een woord" id="" />
+      <input type="submit" name="" value="Zoeken" id="" />
+    </section>
+    <section>
+      <% for (let i = 0;i < image.length; i++ ){%>
+      <img src="<%= image[i] %>" />
+      <%}%>
+    </section>
+  </main>
+  <footer>
+    <p>IT-Project 2021 - 2022</p>
+    <p>&copy; Orzhov Cartel</p>
+  </footer>
 </body>
