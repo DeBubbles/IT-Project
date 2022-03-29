@@ -1,3 +1,6 @@
+import { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } from "constants";
+import { createReadStream } from "fs";
+
 const express = require("express");
 const axios = require("axios");
 const app = express();
@@ -22,6 +25,12 @@ app.get("/", async function (req: any, res: any) {
         images.push(value);
       }
     }
+    //ZOEKFUNCTIE BETA
+    // let values = Object.values(data.cards[index]);
+    // let keys = Object.keys(data.cards[index]);
+    // if (values.includes("Uncommon")) {
+    //   console.log(data.cards[index].imageUrl);
+    // }
   }
 
   res.type("text/html");

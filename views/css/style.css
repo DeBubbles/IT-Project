@@ -62,6 +62,7 @@ body #card-grid section:first-of-type {
 body #card-grid section:first-of-type input {
   margin: 2% 1%;
   padding: 10px;
+  border: 0;
 }
 
 body #card-grid section:first-of-type input[type="text"] {
@@ -70,7 +71,6 @@ body #card-grid section:first-of-type input[type="text"] {
 
 body #card-grid section:first-of-type input[type="submit"] {
   background-color: #4f5954;
-  border: 0;
   color: white;
   -webkit-transition: 0.15s;
   transition: 0.15s;

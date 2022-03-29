@@ -45,13 +45,13 @@ body {
       input {
         margin: 2% 1%;
         padding: 10px;
+        border: 0;
       }
       input[type="text"] {
         width: 20%;
       }
       input[type="submit"] {
         background-color: #4f5954;
-        border: 0;
         color: white;
         transition: 0.15s;
         font-weight: bold;
