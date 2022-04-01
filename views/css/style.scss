@@ -1,87 +1,159 @@
-body {
-  font-family: "Nunito", sans-serif;
-  background-color: #262621;
-  header {
-    font-family: "Roboto", sans-serif;
-    background-color: #878c80;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    figure {
-      img {
-        width: 75%;
+html {
+  body {
+    font-family: "Nunito", sans-serif;
+    background-color: #262621;
+    header {
+      font-family: "Roboto", sans-serif;
+      background-color: #878c80;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      figure {
+        img {
+          width: 75%;
+        }
       }
-    }
-    nav {
-      margin-right: 3%;
-      ul {
-        display: flex;
-        gap: 15px;
-        li {
-          a {
-            color: white;
-            font-size: 16pt;
-            padding: 10%;
-            text-decoration: none;
-          }
-          #active {
-            border-bottom: #4f5954 solid 2px;
+      nav {
+        margin-right: 3%;
+        ul {
+          display: flex;
+          gap: 15px;
+          li {
+            a {
+              color: white;
+              font-size: 16pt;
+              padding: 10%;
+              text-decoration: none;
+            }
+            #active {
+              border-bottom: #4f5954 solid 2px;
+            }
           }
         }
       }
     }
-  }
-  #card-grid {
-    section {
-      h1 {
-        font-size: 24pt;
+    #card-grid {
+      section:first-of-type {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        input {
+          margin: 2% 1%;
+          padding: 10px;
+          border: 0;
+        }
+        input[type="text"] {
+          width: 20%;
+        }
+        input[type="submit"] {
+          background-color: #4f5954;
+          color: white;
+          transition: 0.15s;
+          font-weight: bold;
+        }
+        input[type="submit"]:hover {
+          background-color: #878c80;
+          color: black;
+        }
+      }
+      section:last-of-type {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 1240px;
+        margin: 0 auto;
+        img {
+          margin: 1% 0%;
+          transition: 0.5s;
+        }
+        img:hover {
+          opacity: 0.7;
+          transform: scale(1.03);
+        }
       }
     }
-    section:first-of-type {
+    footer {
+      background-color: #878c80;
+      font-size: 10pt;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      input {
-        margin: 2% 1%;
-        padding: 10px;
-        border: 0;
-      }
-      input[type="text"] {
-        width: 20%;
-      }
-      input[type="submit"] {
-        background-color: #4f5954;
-        color: white;
-        transition: 0.15s;
-        font-weight: bold;
-      }
-      input[type="submit"]:hover {
-        background-color: #878c80;
-        color: black;
-      }
-    }
-    section:last-of-type {
-      display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
-      max-width: 1240px;
-      margin: 0 auto;
-      img {
-        margin: 1% 0%;
-      }
-      img:hover {
-        opacity: 0.5;
+      p {
+        padding: 1%;
       }
     }
   }
-  footer {
-    background-color: #878c80;
-    font-size: 10pt;
-    display: flex;
-    justify-content: space-between;
-    p {
-      padding: 1%;
+}
+
+@media (max-width: 1024px) {
+  html {
+    body {
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    body {
+      header {
+        display: block;
+        figure {
+          img {
+            display: block;
+            margin: 0 auto;
+            width: 40%;
+          }
+        }
+        nav {
+          margin: 0;
+          ul {
+            display: block;
+            li {
+              padding: 2%;
+              display: block;
+              margin: 0 auto;
+              a {
+                font-size: 18pt;
+                display: block;
+                padding: 0;
+                text-align: center;
+              }
+              #active {
+                border: 0;
+              }
+            }
+          }
+        }
+      }
+      #card-grid {
+        section:first-of-type {
+          display: block;
+          input {
+            display: block;
+            margin: 2% auto;
+          }
+          input[type="text"] {
+            width: 50%;
+            font-size: 15pt;
+          }
+          input[type="submit"] {
+            width: 30%;
+            font-size: 15pt;
+          }
+        }
+        section:last-of-type {
+          max-width: 420px;
+          img {
+            width: 50%;
+          }
+        }
+      }
+      footer {
+        display: block;
+        text-align: center;
+        margin-top: 2%;
+        font-size: 12pt;
+      }
     }
   }
 }

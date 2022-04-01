@@ -1,9 +1,9 @@
-body {
+html body {
   font-family: "Nunito", sans-serif;
   background-color: #262621;
 }
 
-body header {
+html body header {
   font-family: "Roboto", sans-serif;
   background-color: #878c80;
   color: white;
@@ -18,37 +18,33 @@ body header {
           justify-content: space-between;
 }
 
-body header figure img {
+html body header figure img {
   width: 75%;
 }
 
-body header nav {
+html body header nav {
   margin-right: 3%;
 }
 
-body header nav ul {
+html body header nav ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 15px;
 }
 
-body header nav ul li a {
+html body header nav ul li a {
   color: white;
   font-size: 16pt;
   padding: 10%;
   text-decoration: none;
 }
 
-body header nav ul li #active {
+html body header nav ul li #active {
   border-bottom: #4f5954 solid 2px;
 }
 
-body #card-grid section h1 {
-  font-size: 24pt;
-}
-
-body #card-grid section:first-of-type {
+html body #card-grid section:first-of-type {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -59,17 +55,17 @@ body #card-grid section:first-of-type {
           justify-content: center;
 }
 
-body #card-grid section:first-of-type input {
+html body #card-grid section:first-of-type input {
   margin: 2% 1%;
   padding: 10px;
   border: 0;
 }
 
-body #card-grid section:first-of-type input[type="text"] {
+html body #card-grid section:first-of-type input[type="text"] {
   width: 20%;
 }
 
-body #card-grid section:first-of-type input[type="submit"] {
+html body #card-grid section:first-of-type input[type="submit"] {
   background-color: #4f5954;
   color: white;
   -webkit-transition: 0.15s;
@@ -77,12 +73,12 @@ body #card-grid section:first-of-type input[type="submit"] {
   font-weight: bold;
 }
 
-body #card-grid section:first-of-type input[type="submit"]:hover {
+html body #card-grid section:first-of-type input[type="submit"]:hover {
   background-color: #878c80;
   color: black;
 }
 
-body #card-grid section:last-of-type {
+html body #card-grid section:last-of-type {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -95,15 +91,19 @@ body #card-grid section:last-of-type {
   margin: 0 auto;
 }
 
-body #card-grid section:last-of-type img {
+html body #card-grid section:last-of-type img {
   margin: 1% 0%;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
-body #card-grid section:last-of-type img:hover {
-  opacity: 0.5;
+html body #card-grid section:last-of-type img:hover {
+  opacity: 0.7;
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
 }
 
-body footer {
+html body footer {
   background-color: #878c80;
   font-size: 10pt;
   display: -webkit-box;
@@ -114,7 +114,65 @@ body footer {
           justify-content: space-between;
 }
 
-body footer p {
+html body footer p {
   padding: 1%;
+}
+
+@media (max-width: 600px) {
+  html body header {
+    display: block;
+  }
+  html body header figure img {
+    display: block;
+    margin: 0 auto;
+    width: 40%;
+  }
+  html body header nav {
+    margin: 0;
+  }
+  html body header nav ul {
+    display: block;
+  }
+  html body header nav ul li {
+    padding: 2%;
+    display: block;
+    margin: 0 auto;
+  }
+  html body header nav ul li a {
+    font-size: 18pt;
+    display: block;
+    padding: 0;
+    text-align: center;
+  }
+  html body header nav ul li #active {
+    border: 0;
+  }
+  html body #card-grid section:first-of-type {
+    display: block;
+  }
+  html body #card-grid section:first-of-type input {
+    display: block;
+    margin: 2% auto;
+  }
+  html body #card-grid section:first-of-type input[type="text"] {
+    width: 50%;
+    font-size: 15pt;
+  }
+  html body #card-grid section:first-of-type input[type="submit"] {
+    width: 30%;
+    font-size: 15pt;
+  }
+  html body #card-grid section:last-of-type {
+    max-width: 420px;
+  }
+  html body #card-grid section:last-of-type img {
+    width: 50%;
+  }
+  html body footer {
+    display: block;
+    text-align: center;
+    margin-top: 2%;
+    font-size: 12pt;
+  }
 }
 /*# sourceMappingURL=style.css.map */
