@@ -10,6 +10,8 @@ app.listen(app.get("port"), () =>
 );
 
 app.use(express.static(__dirname + "/views"));
+app.use(express.json({ limit: "1mb" }));
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req: any, res: any) => {
   res.type("text/html");
@@ -36,7 +38,7 @@ app.get("/mtg", async function (req: any, res: any) {
   });
 });
 
-app.post("/mtg/search", async function (req: any, res: any) {
+app.get("/mtg/zoeken", async function (req: any, res: any) {
   let search = req.body.search;
 
   const api = await axios.get(`https://api.magicthegathering.io/v1/cards`);
@@ -58,6 +60,7 @@ app.post("/mtg/search", async function (req: any, res: any) {
         }
       }
     } else {
+      continue;
     }
   }
 
