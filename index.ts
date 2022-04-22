@@ -16,38 +16,16 @@ app.get("/", (req: any, res: any) => {
   res.render("index");
 });
 
-app.get("/mtg/:func?", async function (req: any, res: any) {
-  let link = req.params.func;
-  let q = req.query.q;
-
+app.get("/mtg", async function (req: any, res: any) {
   const api = await axios.get(`https://api.magicthegathering.io/v1/cards`);
   const data = api.data;
 
   let images: any[] = [];
 
-  if (link == "search" && q != null) {
-    for (let index = 0; index < data.cards.length; index++) {
-      let values = Object.values(data.cards[index]);
-      let keys = Object.keys(data.cards[index]);
-
-      //Foreach
-      //boolean
-
-      if (values.includes(q) || keys.includes(q)) {
-        for (let [key, value] of Object.entries(data.cards[index])) {
-          if (key == "imageUrl") {
-            images.push(value);
-          }
-        }
-      } else {
-      }
-    }
-  } else {
-    for (let index = 0; index < data.cards.length; index++) {
-      for (let [key, value] of Object.entries(data.cards[index])) {
-        if (key == "imageUrl") {
-          images.push(value);
-        }
+  for (let index = 0; index < data.cards.length; index++) {
+    for (let [key, value] of Object.entries(data.cards[index])) {
+      if (key == "imageUrl") {
+        images.push(value);
       }
     }
   }
@@ -58,12 +36,43 @@ app.get("/mtg/:func?", async function (req: any, res: any) {
   });
 });
 
-app.get("/decks", (req: any, res: any) => {
+app.post("/mtg/search", async function (req: any, res: any) {
+  let search = req.body.search;
+
+  const api = await axios.get(`https://api.magicthegathering.io/v1/cards`);
+  const data = api.data;
+
+  let images: any[] = [];
+
+  for (let index = 0; index < data.cards.length; index++) {
+    let values = Object.values(data.cards[index]);
+    let keys = Object.keys(data.cards[index]);
+
+    //Foreach
+    //boolean
+
+    if (values.includes(search) || keys.includes(search)) {
+      for (let [key, value] of Object.entries(data.cards[index])) {
+        if (key == "imageUrl") {
+          images.push(value);
+        }
+      }
+    } else {
+    }
+  }
+
+  res.type("text/html");
+  res.render("home", {
+    image: images,
+  });
+});
+
+app.get("/mtg/decks", (req: any, res: any) => {
   res.type("text/html");
   res.render("decks");
 });
 
-app.get("/draw", (req: any, res: any) => {
+app.get("/mtg/draw", (req: any, res: any) => {
   res.type("text/html");
   res.render("draw");
 });

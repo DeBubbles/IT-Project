@@ -44,7 +44,13 @@ html body header nav ul li #active {
   border-bottom: #4f5954 solid 2px;
 }
 
-html body #card-grid section:first-of-type {
+html body #start section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+html body #card-grid section:first-of-type form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -55,17 +61,20 @@ html body #card-grid section:first-of-type {
           justify-content: center;
 }
 
-html body #card-grid section:first-of-type input {
+html body #card-grid section:first-of-type form input {
   margin: 2% 1%;
   padding: 10px;
   border: 0;
 }
 
-html body #card-grid section:first-of-type input[type="text"] {
+html body #card-grid section:first-of-type form input[type="text"] {
   width: 20%;
 }
 
-html body #card-grid section:first-of-type input[type="submit"] {
+html body #card-grid section:first-of-type form button[type="submit"] {
+  margin: 2% 1%;
+  padding: 10px;
+  border: 0;
   background-color: #4f5954;
   color: white;
   -webkit-transition: 0.15s;
@@ -73,7 +82,7 @@ html body #card-grid section:first-of-type input[type="submit"] {
   font-weight: bold;
 }
 
-html body #card-grid section:first-of-type input[type="submit"]:hover {
+html body #card-grid section:first-of-type form button[type="submit"]:hover {
   background-color: #878c80;
   color: black;
 }
