@@ -33,6 +33,11 @@ html {
         }
       }
     }
+    #start{
+      section{
+        display: flex;
+      }
+    }
     #card-grid {
       section:first-of-type {
         display: flex;

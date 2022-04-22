@@ -11,7 +11,12 @@ app.listen(app.get("port"), () =>
 
 app.use(express.static(__dirname + "/views"));
 
-app.get("/:func?", async function (req: any, res: any) {
+app.get("/", (req: any, res: any) => {
+  res.type("text/html");
+  res.render("index");
+});
+
+app.get("/mtg/:func?", async function (req: any, res: any) {
   let link = req.params.func;
   let q = req.query.q;
 
@@ -24,8 +29,11 @@ app.get("/:func?", async function (req: any, res: any) {
     for (let index = 0; index < data.cards.length; index++) {
       let values = Object.values(data.cards[index]);
       let keys = Object.keys(data.cards[index]);
+
+      //Foreach
+      //boolean
+
       if (values.includes(q) || keys.includes(q)) {
-        console.log(values);
         for (let [key, value] of Object.entries(data.cards[index])) {
           if (key == "imageUrl") {
             images.push(value);
@@ -45,7 +53,7 @@ app.get("/:func?", async function (req: any, res: any) {
   }
 
   res.type("text/html");
-  res.render("index", {
+  res.render("home", {
     image: images,
   });
 });
