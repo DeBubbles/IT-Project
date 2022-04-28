@@ -39,7 +39,50 @@ html {
       }
     }
     #card-grid {
+      #popUp {
+        visibility: hidden;
+        position: fixed;
+        top: auto;
+        left: 500px;
+        width: 45%;
+        height: auto;
+        background-color: #4f5954;
+        #popUpImage {
+          padding: 3%;
+          width: 35%;
+        }
+        h2 {
+          color: white;
+          font-size: 1.7em;
+          position: fixed;
+          top: 260px;
+          left: 850px;
+        }
+        button {
+          background: linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+          background-color: #768d87;
+          border: 1px solid #566963;
+          display: inline-block;
+          cursor: pointer;
+          color: #ffffff;
+          font-family: Arial;
+          font-size: 28px;
+          font-weight: bold;
+          padding: 9px 15px;
+          text-decoration: none;
+          position: fixed;
+          top: 250px;
+          right: 550px;
+        }
+      }
       section:first-of-type {
+        h2 {
+          display: block;
+          color: white;
+          font-size: 2em;
+          text-align: center;
+          margin: 5% 0;
+        }
         form {
           display: flex;
           flex-wrap: wrap;
@@ -58,7 +101,7 @@ html {
             border: 0;
             background-color: #4f5954;
             color: white;
-            transition: 0.15s;
+            transition: 0.1s;
             font-weight: bold;
           }
           button[type="submit"]:hover {

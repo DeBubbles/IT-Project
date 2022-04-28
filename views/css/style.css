@@ -50,6 +50,55 @@ html body #start section {
   display: flex;
 }
 
+html body #card-grid #popUp {
+  visibility: hidden;
+  position: fixed;
+  top: auto;
+  left: 500px;
+  width: 45%;
+  height: auto;
+  background-color: #4f5954;
+}
+
+html body #card-grid #popUp #popUpImage {
+  padding: 3%;
+  width: 35%;
+}
+
+html body #card-grid #popUp h2 {
+  color: white;
+  font-size: 1.7em;
+  position: fixed;
+  top: 260px;
+  left: 850px;
+}
+
+html body #card-grid #popUp button {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #768d87), to(#6c7c7c));
+  background: linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+  background-color: #768d87;
+  border: 1px solid #566963;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 9px 15px;
+  text-decoration: none;
+  position: fixed;
+  top: 250px;
+  right: 550px;
+}
+
+html body #card-grid section:first-of-type h2 {
+  display: block;
+  color: white;
+  font-size: 2em;
+  text-align: center;
+  margin: 5% 0;
+}
+
 html body #card-grid section:first-of-type form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -77,8 +126,8 @@ html body #card-grid section:first-of-type form button[type="submit"] {
   border: 0;
   background-color: #4f5954;
   color: white;
-  -webkit-transition: 0.15s;
-  transition: 0.15s;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
   font-weight: bold;
 }
 

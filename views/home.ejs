@@ -32,15 +32,31 @@
     </nav>
   </header>
   <main id="card-grid">
+    <div id="popUp">
+      <img
+        src="../img/back-of-card.jpg"
+        alt="Achterkant van kaart"
+        id="popUpImage"
+      />
+      <h2 id="popUpH2">None</h2>
+      <button onclick="closeClick()">X</button>
+    </div>
     <section>
       <form action="/mtg/zoeken" method="get">
         <input type="text" placeholder="Een woord" name="search" id="search" />
         <button type="submit">Zoeken</button>
       </form>
+      <%if (tekst) {%>
+      <h2>Niets gevonden</h2>
+      <%}%>
     </section>
     <section>
       <% for (let i = 0;i < image.length; i++ ){%>
-      <img src="<%= image[i] %>" />
+      <img
+        src="<%= image[i].url %>"
+        alt="<%= image[i].name %>"
+        onclick="clickHandler(this.src, this.alt)"
+      />
       <%}%>
     </section>
   </main>
@@ -48,4 +64,16 @@
     <p>IT-Project 2021 - 2022</p>
     <p>&copy; Orzhov Cartel</p>
   </footer>
+
+  <script>
+    function clickHandler(src, alt) {
+      document.getElementById("popUp").style.visibility = "visible";
+      document.getElementById("popUpImage").src = src;
+      document.getElementById("popUpH2").textContent = alt;
+    }
+
+    function closeClick() {
+      document.getElementById("popUp").style.visibility = "hidden";
+    }
+  </script>
 </body>
