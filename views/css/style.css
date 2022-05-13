@@ -44,10 +44,32 @@ html body header nav ul li #active {
   border-bottom: #4f5954 solid 2px;
 }
 
-html body #start section {
+html body #start section:first-of-type {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+html body #start section:first-of-type figure {
+  width: 33%;
+}
+
+html body #start section:first-of-type figure img {
+  margin-left: 25%;
+  margin-top: 15%;
+  width: 50%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+html body #start section:first-of-type figure img:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 html body #card-grid #popUp {
@@ -74,8 +96,6 @@ html body #card-grid #popUp h2 {
 }
 
 html body #card-grid #popUp button {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #768d87), to(#6c7c7c));
-  background: linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
   background-color: #768d87;
   border: 1px solid #566963;
   display: inline-block;
@@ -89,6 +109,10 @@ html body #card-grid #popUp button {
   position: fixed;
   top: 250px;
   right: 550px;
+}
+
+html body #card-grid #popUp button:hover {
+  background-color: #637571;
 }
 
 html body #card-grid section:first-of-type h2 {
@@ -159,6 +183,13 @@ html body #card-grid section:last-of-type img:hover {
   opacity: 0.7;
   -webkit-transform: scale(1.03);
           transform: scale(1.03);
+}
+
+html body #decks section h2 {
+  margin: 2% 0;
+  color: white;
+  font-size: 1.7em;
+  text-align: center;
 }
 
 html body footer {

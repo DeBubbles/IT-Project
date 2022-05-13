@@ -1,3 +1,8 @@
+const { MongoClient } = require("mongodb");
+const uri: string =
+  "mongodb+srv://bubbles:wYUdRX5ruBPE@maincluster.tbehy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useUnifiedTopology: true });
+
 const express = require("express");
 const axios = require("axios");
 const app = express();
@@ -18,7 +23,7 @@ app.get("/", (req: any, res: any) => {
   res.render("index");
 });
 
-app.get("/mtg", async function (req: any, res: any) {
+app.get("/mtg", async (req: any, res: any) => {
   let images: any[] = [];
   let text: boolean = false;
   for (let index = 1; index < 3; index++) {
@@ -51,26 +56,46 @@ app.get("/mtg", async function (req: any, res: any) {
   });
 });
 
-app.get("/mtg/zoeken", async function (req: any, res: any) {
+app.get("/mtg/zoeken", async (req: any, res: any) => {
   let search = req.query.search;
-
-  const api = await axios.get(`https://api.magicthegathering.io/v1/cards`);
-  const data = api.data;
 
   let images: any[] = [];
   let text: boolean = false;
 
-  for (let index = 0; index < data.cards.length; index++) {
-    let values = Object.values(data.cards[index]);
-    let keys = Object.keys(data.cards[index]);
-    if (values.includes(search) || keys.includes(search)) {
-      if (data.cards[index].imageUrl != null) {
-        images.push(data.cards[index].imageUrl);
-      }
-    }
+  for (let index = 1; index < 3; index++) {
+    const api = await axios.get(
+      `https://api.magicthegathering.io/v1/cards?page=${index}`
+    );
+    const data = api.data;
 
-    if (images.length == 0) {
-      text = true;
+    for (let index = 0; index < data.cards.length; index++) {
+      let values = Object.values(data.cards[index]);
+      let keys = Object.keys(data.cards[index]);
+
+      if (
+        inString(data.cards[index], search) ||
+        values.includes(search) ||
+        keys.includes(search)
+      ) {
+        for (let [key, value] of Object.entries(data.cards[index])) {
+          if (key == "imageUrl") {
+            let name = data.cards[index].name;
+            let urlImage = value;
+
+            let kaart = {
+              name: name,
+              url: urlImage,
+            };
+
+            images.push(kaart);
+          }
+        }
+        text = false;
+      }
+
+      if (images.length == 0) {
+        text = true;
+      }
     }
   }
 
@@ -81,16 +106,32 @@ app.get("/mtg/zoeken", async function (req: any, res: any) {
   });
 });
 
-app.get("/mtg/decks", (req: any, res: any) => {
+app.get("/mtg/decks", async (req: any, res: any) => {
+  let result;
+  try {
+    await client.connect();
+
+    const db = client.db("IT-Project");
+    const movie_coll = db.collection("Decks");
+
+    result = await movie_coll.find({}).toArray();
+    console.log(result);
+  } catch (e) {
+    console.error(e);
+  } finally {
+    await client.close();
+  }
   res.type("text/html");
   res.render("decks");
 });
 
-app.get("/mtg/draw", (req: any, res: any) => {
+app.get("/mtg/draw", async (req: any, res: any) => {
   res.type("text/html");
   res.render("draw");
 });
 
-function onClick(_src: string) {
-  alert(_src);
-}
+const inString = (cards: object, search: string) => {
+  let values = Object.values(cards);
+  if (values.indexOf(search) !== -1) return true;
+  else return false;
+};

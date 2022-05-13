@@ -25,9 +25,9 @@
     </figure>
     <nav>
       <ul>
-        <li><a href="home" id="active">Home</a></li>
-        <li><a href="decks">Decks</a></li>
-        <li><a href="draw">DrawTest</a></li>
+        <li><a href="mtg" id="active">Home</a></li>
+        <li><a href="../mtg/decks">Decks</a></li>
+        <li><a href="../mtg/draw">DrawTest</a></li>
       </ul>
     </nav>
   </header>
@@ -37,16 +37,18 @@
         src="../img/back-of-card.jpg"
         alt="Achterkant van kaart"
         id="popUpImage"
+        title="Titel van kaart"
       />
       <h2 id="popUpH2">None</h2>
       <button onclick="closeClick()">X</button>
+      <div></div>
     </div>
     <section>
       <form action="/mtg/zoeken" method="get">
         <input type="text" placeholder="Een woord" name="search" id="search" />
         <button type="submit">Zoeken</button>
       </form>
-      <%if (tekst) {%>
+      <% if(tekst){%>
       <h2>Niets gevonden</h2>
       <%}%>
     </section>
@@ -77,3 +79,8 @@
     }
   </script>
 </body>
+
+<!-- popUp moet responsive worden -->
+<!-- description moet erbij komen -->
+
+<!-- Call functions ejs -> typescript -->
