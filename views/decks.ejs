@@ -31,9 +31,23 @@
     </nav>
   </header>
   <main id="decks">
+    <% if(succes){%>
+    <div id="succes">
+      <h3>Collection aangemaakt.</h3>
+    </div>
+    <%}%>
     <section>
       <h2>Jouw Decks</h2>
     </section>
+    <form action="/mtg/createDeck" method="POST">
+      <input
+        type="text"
+        placeholder="Deck naam"
+        name="deckname"
+        id="deckname"
+      />
+      <button type="submit">Create Deck</button>
+    </form>
   </main>
   <footer>
     <p>IT-Project 2021 - 2022</p>

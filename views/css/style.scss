@@ -73,7 +73,6 @@ html {
           left: 850px;
         }
         button {
-          //background: linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
           background-color: #768d87;
           border: 1px solid #566963;
           display: inline-block;
@@ -88,8 +87,33 @@ html {
           top: 250px;
           right: 550px;
         }
+        button[type="submit"] {
+          position: fixed;
+          top: 600px;
+          right: 550px;
+        }
         button:hover {
           background-color: #637571;
+        }
+        select {
+          position: fixed;
+          top: 300px;
+          left: 850px;
+          width: 20%;
+          height: 40px;
+        }
+        label {
+          position: fixed;
+          top: 380px;
+          left: 850px;
+          color: white;
+        }
+        input[type="number"] {
+          position: fixed;
+          top: 400px;
+          left: 850px;
+          width: 10%;
+          height: 30px;
         }
       }
       section:first-of-type {
@@ -97,6 +121,13 @@ html {
           display: block;
           color: white;
           font-size: 2em;
+          text-align: center;
+          margin: 5% 0;
+        }
+        h3 {
+          display: block;
+          color: white;
+          font-size: 1.7em;
           text-align: center;
           margin: 5% 0;
         }
@@ -144,12 +175,44 @@ html {
       }
     }
     #decks {
+      #succes {
+        background-color: #4f5954;
+        color: white;
+        text-align: center;
+        padding: 0.5%;
+      }
       section {
         h2 {
           margin: 2% 0;
           color: white;
           font-size: 1.7em;
           text-align: center;
+        }
+      }
+      form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        input {
+          margin: 2% 1%;
+          padding: 10px;
+          border: 0;
+        }
+        input[type="text"] {
+          width: 20%;
+        }
+        button[type="submit"] {
+          margin: 2% 1%;
+          padding: 10px;
+          border: 0;
+          background-color: #4f5954;
+          color: white;
+          transition: 0.1s;
+          font-weight: bold;
+        }
+        button[type="submit"]:hover {
+          background-color: #878c80;
+          color: black;
         }
       }
     }
