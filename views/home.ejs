@@ -33,15 +33,37 @@
   </header>
   <main id="card-grid">
     <div id="popUp">
-      <img
-        src="../img/back-of-card.jpg"
-        alt="Achterkant van kaart"
-        id="popUpImage"
-        title="Titel van kaart"
-      />
-      <h2 id="popUpH2">None</h2>
-      <button onclick="closeClick()">X</button>
-      <div></div>
+      <form action="/mtg/addCard" method="POST">
+        <img
+          src="../img/back-of-card.jpg"
+          alt="Achterkant van kaart"
+          id="popUpImage"
+          title="Titel van kaart"
+          value="../img/back-of-card.jpg"
+        />
+        <h2 id="popUpH2" value="None">None</h2>
+        <button type="button" onclick="closeClick()">X</button>
+        <select name="collections" id="collections">
+          <% for (let i = 0;i < collections.length; i++ ){%>
+          <option value="<%= collections[i].name %>">
+            Deck: <%= collections[i].name %>
+          </option>
+          <%}%>
+        </select>
+        <input type="hidden" value="none" id="imgUrlForm" name="imgUrlForm" />
+        <input type="hidden" value="none" id="titleForm" name="titleForm" />
+        <label for="amountCardForm">Aantal</label>
+        <input
+          type="number"
+          name="amountCard"
+          id="amountCardForm"
+          min="1"
+          max="4"
+          value="1"
+        />
+
+        <button type="submit">Add to deck</button>
+      </form>
     </div>
     <section>
       <form action="/mtg/zoeken" method="get">
@@ -50,6 +72,10 @@
       </form>
       <% if(tekst){%>
       <h2>Niets gevonden</h2>
+      <%}%> <% if(succes){%>
+      <h3>Succesvol kaart toegevoegd.</h3>
+      <%}%> <% if(maxAdd){%>
+      <h3>Je hebt max aantal kaarten bereikt.</h3>
       <%}%>
     </section>
     <section>
@@ -72,6 +98,8 @@
       document.getElementById("popUp").style.visibility = "visible";
       document.getElementById("popUpImage").src = src;
       document.getElementById("popUpH2").textContent = alt;
+      document.getElementById("titleForm").setAttribute("value", alt);
+      document.getElementById("imgUrlForm").setAttribute("value", src);
     }
 
     function closeClick() {

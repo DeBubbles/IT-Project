@@ -111,14 +111,51 @@ html body #card-grid #popUp button {
   right: 550px;
 }
 
+html body #card-grid #popUp button[type="submit"] {
+  position: fixed;
+  top: 600px;
+  right: 550px;
+}
+
 html body #card-grid #popUp button:hover {
   background-color: #637571;
+}
+
+html body #card-grid #popUp select {
+  position: fixed;
+  top: 300px;
+  left: 850px;
+  width: 20%;
+  height: 40px;
+}
+
+html body #card-grid #popUp label {
+  position: fixed;
+  top: 380px;
+  left: 850px;
+  color: white;
+}
+
+html body #card-grid #popUp input[type="number"] {
+  position: fixed;
+  top: 400px;
+  left: 850px;
+  width: 10%;
+  height: 30px;
 }
 
 html body #card-grid section:first-of-type h2 {
   display: block;
   color: white;
   font-size: 2em;
+  text-align: center;
+  margin: 5% 0;
+}
+
+html body #card-grid section:first-of-type h3 {
+  display: block;
+  color: white;
+  font-size: 1.7em;
   text-align: center;
   margin: 5% 0;
 }
@@ -185,11 +222,55 @@ html body #card-grid section:last-of-type img:hover {
           transform: scale(1.03);
 }
 
+html body #decks #succes {
+  background-color: #4f5954;
+  color: white;
+  text-align: center;
+  padding: 0.5%;
+}
+
 html body #decks section h2 {
   margin: 2% 0;
   color: white;
   font-size: 1.7em;
   text-align: center;
+}
+
+html body #decks form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+html body #decks form input {
+  margin: 2% 1%;
+  padding: 10px;
+  border: 0;
+}
+
+html body #decks form input[type="text"] {
+  width: 20%;
+}
+
+html body #decks form button[type="submit"] {
+  margin: 2% 1%;
+  padding: 10px;
+  border: 0;
+  background-color: #4f5954;
+  color: white;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+  font-weight: bold;
+}
+
+html body #decks form button[type="submit"]:hover {
+  background-color: #878c80;
+  color: black;
 }
 
 html body footer {
