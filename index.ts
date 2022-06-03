@@ -135,16 +135,23 @@ app.get("/mtg/decks", async (req: any, res: any) => {
   let result;
   let tekst: string = "";
   let succes: boolean = false;
+  let cardsArray: any[] = [];
 
   if (req.query.collectionCreated == "succes") {
     succes = true;
   }
-
   try {
     await client.connect();
 
     const db = client.db("IT-Project");
     const collections = await db.listCollections().toArray();
+
+    for (let index = 0; index < collections.length; index++) {
+      const coll = db.collection(collections[index].name);
+
+      const cards = await coll.find({}).toArray();
+      cardsArray.push({ title: collections[index].name, url: cards[1].url });
+    }
   } catch (e) {
     console.error(e);
   } finally {
