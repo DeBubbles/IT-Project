@@ -440,17 +440,21 @@ html {
           }
         }
         section:first-of-type {
-          display: block;
-          input {
-            margin: 2% auto;
-          }
-          input[type="text"] {
-            width: 57%;
-            font-size: 15pt;
-          }
-          input[type="submit"] {
-            width: 40%;
-            font-size: 15pt;
+          form {
+            display: block;
+            input {
+              margin: 2% auto;
+            }
+            input[type="text"] {
+              display: block;
+              width: 70%;
+              font-size: 15pt;
+            }
+            button[type="submit"] {
+              margin: 2% 20%;
+              width: 60%;
+              font-size: 15pt;
+            }
           }
         }
         section:last-of-type {

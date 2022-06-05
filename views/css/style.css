@@ -513,18 +513,20 @@ html body footer p {
     left: 45%;
     width: 20%;
   }
-  html body #card-grid section:first-of-type {
+  html body #card-grid section:first-of-type form {
     display: block;
   }
-  html body #card-grid section:first-of-type input {
+  html body #card-grid section:first-of-type form input {
     margin: 2% auto;
   }
-  html body #card-grid section:first-of-type input[type="text"] {
-    width: 57%;
+  html body #card-grid section:first-of-type form input[type="text"] {
+    display: block;
+    width: 70%;
     font-size: 15pt;
   }
-  html body #card-grid section:first-of-type input[type="submit"] {
-    width: 40%;
+  html body #card-grid section:first-of-type form button[type="submit"] {
+    margin: 2% 20%;
+    width: 60%;
     font-size: 15pt;
   }
   html body #card-grid section:last-of-type {
