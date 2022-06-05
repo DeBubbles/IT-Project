@@ -7,8 +7,8 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
   />
-  <link rel="stylesheet" href="../css/reset.css" />
-  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="/css/reset.css" />
+  <link rel="stylesheet" href="/css/style.css" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,28 +21,35 @@
 <body>
   <header>
     <figure>
-      <img src="../img/Logo.png" alt="Logo" />
+      <img src="/img/Logo.png" alt="Logo" />
     </figure>
     <nav>
       <ul>
-        <li><a href="/mtg" id="active">Home</a></li>
-        <li><a href="../mtg/decks">Decks</a></li>
-        <li><a href="../mtg/draw">DrawTest</a></li>
+        <li><a href="/mtg">Home</a></li>
+        <li><a href="../decks" id="active">Decks</a></li>
+        <li><a href="../draw">DrawTest</a></li>
       </ul>
     </nav>
   </header>
-  <main id="card-grid">
+  <main id="oneDeck">
     <% if(succes){%>
     <div id="succes">
-      <h3>Succesvol kaart toegevoegd.</h3>
+      <h3>Deck geupdate.</h3>
     </div>
-    <%}%> <% if(maxAdd){%>
+    <%}%> <% if(maxAmount){%>
     <div id="succes">
-      <h3 id="succes">Je hebt max aantal kaarten bereikt.</h3>
+      <h3>Canceled: max amount (60) reached.</h3>
+    </div>
+    <%}%> <% if(deleted){%>
+    <div id="succes">
+      <h3>Card deleted</h3>
     </div>
     <%}%>
+    <section>
+      <h2>Deck: <%= name %></h2>
+    </section>
     <div id="popUp">
-      <form action="/mtg/addCard" method="POST">
+      <form action="/mtg/decks/modify" method="POST">
         <img
           src="../img/back-of-card.jpg"
           alt="Achterkant van kaart"
@@ -52,15 +59,19 @@
         />
         <h2 id="popUpH2" value="None">None</h2>
         <button type="button" onclick="closeClick()">X</button>
-        <select name="collections" id="collections">
-          <% for (let i = 0;i < collections.length; i++ ){%>
-          <option value="<%= collections[i].name %>">
-            Deck: <%= collections[i].name %>
-          </option>
-          <%}%>
-        </select>
-        <input type="hidden" value="none" id="imgUrlForm" name="imgUrlForm" />
         <input type="hidden" value="none" id="titleForm" name="titleForm" />
+        <input
+          type="hidden"
+          value="none"
+          id="functionForm"
+          name="functionForm"
+        />
+        <input
+          type="hidden"
+          value="<%= name %>"
+          id="collection"
+          name="collection"
+        />
         <label for="amountCardForm">Aantal</label>
         <input
           type="number"
@@ -70,25 +81,21 @@
           max="4"
           value="1"
         />
-
-        <button type="submit">Add to deck</button>
+        <button type="submit" onclick="updateFunc()" id="updateButton">
+          Update
+        </button>
+        <button type="submit" onclick="deleteFunc()" id="deleteButton">
+          Delete
+        </button>
       </form>
     </div>
     <section>
-      <form action="/mtg/zoeken" method="get">
-        <input type="text" placeholder="Een woord" name="search" id="search" />
-        <button type="submit">Zoeken</button>
-      </form>
-      <% if(tekst){%>
-      <h2>Niets gevonden</h2>
-      <%}%>
-    </section>
-    <section>
-      <% for (let i = 0;i < image.length; i++ ){%>
+      <% for (let i = 0;i < cards.length; i++ ){%>
       <img
-        src="<%= image[i].url %>"
-        alt="<%= image[i].name %>"
-        onclick="clickHandler(this.src, this.alt)"
+        src="<%= cards[i].url %>"
+        alt="<%= cards[i].amount %>"
+        title="<%= cards[i].name %>"
+        onclick="clickHandler(this.src, this.alt, this.title)"
       />
       <%}%>
     </section>
@@ -97,23 +104,24 @@
     <p>IT-Project 2021 - 2022</p>
     <p>&copy; Orzhov Cartel</p>
   </footer>
-
   <script>
-    function clickHandler(src, alt) {
+    function clickHandler(src, alt, title) {
       document.getElementById("popUp").style.visibility = "visible";
       document.getElementById("popUpImage").src = src;
-      document.getElementById("popUpH2").textContent = alt;
-      document.getElementById("titleForm").setAttribute("value", alt);
-      document.getElementById("imgUrlForm").setAttribute("value", src);
+      document.getElementById("popUpH2").textContent = title;
+      document.getElementById("amountCardForm").setAttribute("value", alt);
+      document.getElementById("titleForm").setAttribute("value", title);
     }
 
     function closeClick() {
       document.getElementById("popUp").style.visibility = "hidden";
     }
+
+    function deleteFunc() {
+      document.getElementById("functionForm").setAttribute("value", "delete");
+    }
+    function updateFunc() {
+      document.getElementById("functionForm").setAttribute("value", "update");
+    }
   </script>
 </body>
-
-<!-- popUp moet responsive worden -->
-<!-- description moet erbij komen -->
-
-<!-- Call functions ejs -> typescript -->

@@ -72,6 +72,13 @@ html body #start section:first-of-type figure img:hover {
           transform: scale(1.1);
 }
 
+html body #card-grid #succes {
+  background-color: #4f5954;
+  color: white;
+  text-align: center;
+  padding: 0.5%;
+}
+
 html body #card-grid #popUp {
   visibility: hidden;
   position: fixed;
@@ -91,7 +98,7 @@ html body #card-grid #popUp h2 {
   color: white;
   font-size: 1.7em;
   position: fixed;
-  top: 260px;
+  top: 33%;
   left: 850px;
 }
 
@@ -107,8 +114,8 @@ html body #card-grid #popUp button {
   padding: 9px 15px;
   text-decoration: none;
   position: fixed;
-  top: 250px;
-  right: 550px;
+  top: 30%;
+  right: 30%;
 }
 
 html body #card-grid #popUp button[type="submit"] {
@@ -123,23 +130,23 @@ html body #card-grid #popUp button:hover {
 
 html body #card-grid #popUp select {
   position: fixed;
-  top: 300px;
-  left: 850px;
+  top: 38%;
+  left: 45.5%;
   width: 20%;
   height: 40px;
 }
 
 html body #card-grid #popUp label {
   position: fixed;
-  top: 380px;
-  left: 850px;
+  top: 45%;
+  left: 45.5%;
   color: white;
 }
 
 html body #card-grid #popUp input[type="number"] {
   position: fixed;
-  top: 400px;
-  left: 850px;
+  top: 48%;
+  left: 45.5%;
   width: 10%;
   height: 30px;
 }
@@ -208,6 +215,7 @@ html body #card-grid section:last-of-type {
           justify-content: space-between;
   max-width: 1240px;
   margin: 0 auto;
+  pointer-events: all;
 }
 
 html body #card-grid section:last-of-type img {
@@ -229,11 +237,44 @@ html body #decks #succes {
   padding: 0.5%;
 }
 
-html body #decks section h2 {
-  margin: 2% 0;
+html body #decks section:first-of-type h2 {
+  margin: 4% 0;
   color: white;
   font-size: 1.7em;
   text-align: center;
+}
+
+html body #decks section:last-of-type {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+html body #decks section:last-of-type a {
+  text-decoration: none;
+}
+
+html body #decks section:last-of-type div {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+html body #decks section:last-of-type div h2 {
+  color: white;
+  text-align: center;
+}
+
+html body #decks section:last-of-type div:hover {
+  opacity: 0.7;
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
 }
 
 html body #decks form {
@@ -271,6 +312,108 @@ html body #decks form button[type="submit"] {
 html body #decks form button[type="submit"]:hover {
   background-color: #878c80;
   color: black;
+}
+
+html body #oneDeck #succes {
+  background-color: #4f5954;
+  color: white;
+  text-align: center;
+  padding: 0.5%;
+}
+
+html body #oneDeck #popUp {
+  visibility: hidden;
+  position: fixed;
+  top: 23%;
+  left: 500px;
+  width: 45%;
+  height: auto;
+  background-color: #4f5954;
+}
+
+html body #oneDeck #popUp #popUpImage {
+  padding: 3%;
+  width: 35%;
+}
+
+html body #oneDeck #popUp h2 {
+  color: white;
+  font-size: 1.7em;
+  position: fixed;
+  top: 260px;
+  left: 850px;
+}
+
+html body #oneDeck #popUp button {
+  background-color: #768d87;
+  border: 1px solid #566963;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 9px 15px;
+  text-decoration: none;
+  position: fixed;
+  top: 25%;
+  right: 30%;
+}
+
+html body #oneDeck #popUp button[type="submit"] {
+  position: fixed;
+  top: 65%;
+  right: 30%;
+}
+
+html body #oneDeck #popUp #deleteButton {
+  position: fixed;
+  top: 65%;
+  right: 49%;
+}
+
+html body #oneDeck #popUp button:hover {
+  background-color: #637571;
+}
+
+html body #oneDeck #popUp label {
+  position: fixed;
+  top: 380px;
+  left: 850px;
+  color: white;
+}
+
+html body #oneDeck #popUp input[type="number"] {
+  position: fixed;
+  top: 400px;
+  left: 850px;
+  width: 10%;
+  height: 30px;
+}
+
+html body #oneDeck section:first-of-type h2 {
+  margin: 4% 0;
+  color: white;
+  font-size: 1.7em;
+  text-align: center;
+}
+
+html body #oneDeck section:last-of-type {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 1240px;
+  margin: 0 auto 3% auto;
+}
+
+html body #oneDeck section:last-of-type img {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 html body footer {
@@ -317,26 +460,187 @@ html body footer p {
   html body header nav ul li #active {
     border: 0;
   }
+  html body #start section:first-of-type {
+    display: block;
+  }
+  html body #start section:first-of-type figure {
+    width: 100%;
+  }
+  html body #start section:first-of-type figure img {
+    margin-left: 25%;
+    margin-top: 15%;
+    width: 50%;
+  }
+  html body #card-grid #popUp {
+    position: fixed;
+    top: 30%;
+    left: 0px;
+    width: 100%;
+  }
+  html body #card-grid #popUp #popUpImage {
+    width: 40%;
+  }
+  html body #card-grid #popUp h2 {
+    position: fixed;
+    top: 33%;
+    left: 45%;
+  }
+  html body #card-grid #popUp button {
+    font-size: 28px;
+    font-weight: bold;
+    padding: 9px 15px;
+    text-decoration: none;
+    position: fixed;
+    top: 33%;
+    right: 5%;
+  }
+  html body #card-grid #popUp button[type="submit"] {
+    position: fixed;
+    top: 65%;
+    right: 5%;
+  }
+  html body #card-grid #popUp label {
+    position: fixed;
+    top: 40%;
+    left: 45%;
+    font-size: 1.4em;
+    color: white;
+  }
+  html body #card-grid #popUp input[type="number"] {
+    position: fixed;
+    font-size: 1em;
+    top: 45%;
+    left: 45%;
+    width: 20%;
+  }
   html body #card-grid section:first-of-type {
     display: block;
   }
   html body #card-grid section:first-of-type input {
-    display: block;
     margin: 2% auto;
   }
   html body #card-grid section:first-of-type input[type="text"] {
-    width: 50%;
+    width: 57%;
     font-size: 15pt;
   }
   html body #card-grid section:first-of-type input[type="submit"] {
-    width: 30%;
+    width: 40%;
     font-size: 15pt;
   }
   html body #card-grid section:last-of-type {
-    max-width: 420px;
+    max-width: none;
   }
   html body #card-grid section:last-of-type img {
-    width: 50%;
+    width: 45%;
+  }
+  html body #decks #succes {
+    background-color: #4f5954;
+    color: white;
+    text-align: center;
+    padding: 0.5%;
+  }
+  html body #decks section:first-of-type h2 {
+    margin: 4% 0;
+    color: white;
+    font-size: 1.7em;
+    text-align: center;
+  }
+  html body #decks section:last-of-type {
+    max-width: none;
+  }
+  html body #decks section:last-of-type a {
+    margin: 5% auto;
+  }
+  html body #decks section:last-of-type div h2 {
+    font-size: 1.2em;
+  }
+  html body #decks form {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  html body #decks form input {
+    margin: 4% 1%;
+    padding: 10px;
+    border: 0;
+  }
+  html body #decks form input[type="text"] {
+    margin: 2% 1%;
+    width: 30%;
+  }
+  html body #decks form button[type="submit"] {
+    margin: 2% 1%;
+    padding: 10px;
+    border: 0;
+  }
+  html body #oneDeck #succes {
+    font-size: 1.3em;
+    text-align: center;
+    padding: 1%;
+  }
+  html body #oneDeck #popUp {
+    position: fixed;
+    top: 30%;
+    left: 0px;
+    width: 100%;
+  }
+  html body #oneDeck #popUp #popUpImage {
+    width: 40%;
+  }
+  html body #oneDeck #popUp h2 {
+    position: fixed;
+    top: 33%;
+    left: 45%;
+  }
+  html body #oneDeck #popUp button {
+    font-size: 28px;
+    font-weight: bold;
+    padding: 9px 15px;
+    text-decoration: none;
+    position: fixed;
+    top: 33%;
+    right: 5%;
+  }
+  html body #oneDeck #popUp button[type="submit"] {
+    position: fixed;
+    top: 65%;
+    right: 5%;
+  }
+  html body #oneDeck #popUp label {
+    position: fixed;
+    top: 40%;
+    left: 45%;
+    font-size: 1.4em;
+    color: white;
+  }
+  html body #oneDeck #popUp input[type="number"] {
+    position: fixed;
+    font-size: 1em;
+    top: 45%;
+    left: 45%;
+    width: 20%;
+  }
+  html body #oneDeck section:first-of-type h2 {
+    margin: 5% 0;
+    color: white;
+    font-size: 1.8em;
+    text-align: center;
+  }
+  html body #oneDeck section:last-of-type {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin: 0 auto 3% auto;
+  }
+  html body #oneDeck section:last-of-type img {
+    width: 40%;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
   }
   html body footer {
     display: block;

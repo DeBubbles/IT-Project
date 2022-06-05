@@ -86,6 +86,10 @@ app.get("/mtg/zoeken", async (req: any, res: any) => {
 
   let images: any[10] = [];
   let text: boolean = false;
+  let succes: boolean = false;
+  let maxAdd: boolean = false;
+
+  let collections;
 
   for (let index = 1; index < 3; index++) {
     const api = await axios.get(
@@ -124,18 +128,32 @@ app.get("/mtg/zoeken", async (req: any, res: any) => {
     }
   }
 
+  try {
+    await client.connect();
+
+    const db = client.db("IT-Project");
+    collections = await db.listCollections().toArray();
+  } catch (e) {
+    console.error(e);
+  } finally {
+    await client.close();
+  }
+
   res.type("text/html");
   res.render("home", {
     image: images,
+    succes: succes,
+    maxAdd: maxAdd,
     tekst: text,
+    collections: collections,
   });
 });
 
 app.get("/mtg/decks", async (req: any, res: any) => {
-  let result;
-  let tekst: string = "";
   let succes: boolean = false;
   let cardsArray: any[] = [];
+
+  const backgroundImage: string = "../img/back-of-card.jpg";
 
   if (req.query.collectionCreated == "succes") {
     succes = true;
@@ -150,7 +168,14 @@ app.get("/mtg/decks", async (req: any, res: any) => {
       const coll = db.collection(collections[index].name);
 
       const cards = await coll.find({}).toArray();
-      cardsArray.push({ title: collections[index].name, url: cards[1].url });
+      if (cards[0] == null) {
+        cardsArray.push({
+          title: collections[index].name,
+          url: backgroundImage,
+        });
+      } else {
+        cardsArray.push({ title: collections[index].name, url: cards[0].url });
+      }
     }
   } catch (e) {
     console.error(e);
@@ -160,7 +185,107 @@ app.get("/mtg/decks", async (req: any, res: any) => {
   res.type("text/html");
   res.render("decks", {
     succes: succes,
+    decks: cardsArray,
   });
+});
+
+app.get("/mtg/decks/:name", async (req: any, res: any) => {
+  let collection = req.params.name;
+
+  let succes: boolean = false;
+  let maxAmount: boolean = false;
+  let deleted: boolean = false;
+
+  if (req.query.modified == "succes") {
+    succes = true;
+  } else if (req.query.modified == "maxAmount") {
+    maxAmount = true;
+  }
+
+  let cards;
+
+  try {
+    await client.connect();
+
+    const db = client.db("IT-Project");
+    const coll = db.collection(collection);
+
+    cards = await coll.find({}).toArray();
+  } catch (e) {
+    console.error(e);
+  } finally {
+    await client.close();
+  }
+  res.type("text/html");
+  res.render("oneDeck", {
+    succes: succes,
+    maxAmount: maxAmount,
+    deleted: deleted,
+    name: collection,
+    cards: cards,
+  });
+});
+
+app.post("/mtg/decks/modify", async (req: any, res: any) => {
+  let title = req.body.titleForm;
+  let collection = req.body.collection;
+  let amount = req.body.amountCard;
+  let func = req.body.functionForm;
+
+  let sum: number = 0;
+  let cards;
+
+  let succes: boolean = false;
+  let deleted: boolean = false;
+  let maxAmount: boolean = false;
+  try {
+    await client.connect();
+
+    const db = client.db("IT-Project");
+    const coll = db.collection(collection);
+
+    cards = await coll.find({}).toArray();
+
+    if (func == "update") {
+      for (let index = 0; index < cards.length; index++) {
+        if (cards[index].name == title) {
+          for (let index = 0; index < cards.length; index++) {
+            sum = sum + parseInt(cards[index].amount);
+          }
+
+          if (sum + parseInt(amount) < 60) {
+            await coll.updateOne(
+              { _id: cards[index]._id },
+              { $set: { amount: amount } }
+            );
+            succes = true;
+          } else {
+            maxAmount = true;
+          }
+        }
+      }
+    } else if (func == "delete") {
+      for (let index = 0; index < cards.length; index++) {
+        if (cards[index].name == title) {
+          await coll.findOne({ _id: cards[index]._id });
+          await coll.deleteOne({ _id: cards[index]._id });
+          deleted = true;
+        }
+      }
+    }
+  } catch (e) {
+    console.error(e);
+  } finally {
+    await client.close();
+  }
+
+  if (succes) {
+    res.redirect("/mtg/decks/" + collection + "?modified=succes");
+  } else if (maxAmount) {
+    res.redirect("/mtg/decks/" + collection + "?modified=maxAmount");
+  } else if (deleted) {
+    res.redirect("/mtg/decks/" + collection + "?modified=deleted");
+  }
 });
 
 app.get("/mtg/draw", async (req: any, res: any) => {

@@ -39,6 +39,19 @@
     <section>
       <h2>Jouw Decks</h2>
     </section>
+    <section>
+      <% for (let i = 0;i < decks.length; i++ ){%>
+      <a href="decks/<%= decks[i].title %>">
+        <div>
+          <img
+            src="<%= decks[i].url %>"
+            alt="deck image of <%= decks[i].title %>"
+          />
+          <h2><%= decks[i].title %></h2>
+        </div>
+      </a>
+      <%}%>
+    </section>
     <form action="/mtg/createDeck" method="POST">
       <input
         type="text"

@@ -53,6 +53,12 @@ html {
       }
     }
     #card-grid {
+      #succes {
+        background-color: #4f5954;
+        color: white;
+        text-align: center;
+        padding: 0.5%;
+      }
       #popUp {
         visibility: hidden;
         position: fixed;
@@ -69,7 +75,7 @@ html {
           color: white;
           font-size: 1.7em;
           position: fixed;
-          top: 260px;
+          top: 33%;
           left: 850px;
         }
         button {
@@ -84,8 +90,8 @@ html {
           padding: 9px 15px;
           text-decoration: none;
           position: fixed;
-          top: 250px;
-          right: 550px;
+          top: 30%;
+          right: 30%;
         }
         button[type="submit"] {
           position: fixed;
@@ -97,21 +103,21 @@ html {
         }
         select {
           position: fixed;
-          top: 300px;
-          left: 850px;
+          top: 38%;
+          left: 45.5%;
           width: 20%;
           height: 40px;
         }
         label {
           position: fixed;
-          top: 380px;
-          left: 850px;
+          top: 45%;
+          left: 45.5%;
           color: white;
         }
         input[type="number"] {
           position: fixed;
-          top: 400px;
-          left: 850px;
+          top: 48%;
+          left: 45.5%;
           width: 10%;
           height: 30px;
         }
@@ -164,6 +170,7 @@ html {
         justify-content: space-between;
         max-width: 1240px;
         margin: 0 auto;
+        pointer-events: all;
         img {
           margin: 1% 0%;
           transition: 0.5s;
@@ -181,12 +188,33 @@ html {
         text-align: center;
         padding: 0.5%;
       }
-      section {
+      section:first-of-type {
         h2 {
-          margin: 2% 0;
+          margin: 4% 0;
           color: white;
           font-size: 1.7em;
           text-align: center;
+        }
+      }
+      section:last-of-type {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 1240px;
+        margin: 0 auto;
+        a {
+          text-decoration: none;
+        }
+        div {
+          transition: 0.5s;
+          h2 {
+            color: white;
+            text-align: center;
+          }
+        }
+        div:hover {
+          opacity: 0.7;
+          transform: scale(1.03);
         }
       }
       form {
@@ -213,6 +241,93 @@ html {
         button[type="submit"]:hover {
           background-color: #878c80;
           color: black;
+        }
+      }
+    }
+    #oneDeck {
+      #succes {
+        background-color: #4f5954;
+        color: white;
+        text-align: center;
+        padding: 0.5%;
+      }
+      #popUp {
+        visibility: hidden;
+        position: fixed;
+        top: 23%;
+        left: 500px;
+        width: 45%;
+        height: auto;
+        background-color: #4f5954;
+        #popUpImage {
+          padding: 3%;
+          width: 35%;
+        }
+        h2 {
+          color: white;
+          font-size: 1.7em;
+          position: fixed;
+          top: 260px;
+          left: 850px;
+        }
+        button {
+          background-color: #768d87;
+          border: 1px solid #566963;
+          display: inline-block;
+          cursor: pointer;
+          color: #ffffff;
+          font-family: Arial;
+          font-size: 28px;
+          font-weight: bold;
+          padding: 9px 15px;
+          text-decoration: none;
+          position: fixed;
+          top: 25%;
+          right: 30%;
+        }
+        button[type="submit"] {
+          position: fixed;
+          top: 65%;
+          right: 30%;
+        }
+        #deleteButton {
+          position: fixed;
+          top: 65%;
+          right: 49%;
+        }
+        button:hover {
+          background-color: #637571;
+        }
+        label {
+          position: fixed;
+          top: 380px;
+          left: 850px;
+          color: white;
+        }
+        input[type="number"] {
+          position: fixed;
+          top: 400px;
+          left: 850px;
+          width: 10%;
+          height: 30px;
+        }
+      }
+      section:first-of-type {
+        h2 {
+          margin: 4% 0;
+          color: white;
+          font-size: 1.7em;
+          text-align: center;
+        }
+      }
+      section:last-of-type {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 1240px;
+        margin: 0 auto 3% auto;
+        img {
+          transition: 0.5s;
         }
       }
     }
@@ -268,26 +383,191 @@ html {
           }
         }
       }
+      #start {
+        section:first-of-type {
+          display: block;
+          figure {
+            width: 100%;
+            img {
+              margin-left: 25%;
+              margin-top: 15%;
+              width: 50%;
+            }
+          }
+        }
+      }
       #card-grid {
+        #popUp {
+          position: fixed;
+          top: 30%;
+          left: 0px;
+          width: 100%;
+          #popUpImage {
+            width: 40%;
+          }
+          h2 {
+            position: fixed;
+            top: 33%;
+            left: 45%;
+          }
+          button {
+            font-size: 28px;
+            font-weight: bold;
+            padding: 9px 15px;
+            text-decoration: none;
+            position: fixed;
+            top: 33%;
+            right: 5%;
+          }
+          button[type="submit"] {
+            position: fixed;
+            top: 65%;
+            right: 5%;
+          }
+          label {
+            position: fixed;
+            top: 40%;
+            left: 45%;
+            font-size: 1.4em;
+            color: white;
+          }
+          input[type="number"] {
+            position: fixed;
+            font-size: 1em;
+            top: 45%;
+            left: 45%;
+            width: 20%;
+          }
+        }
         section:first-of-type {
           display: block;
           input {
-            display: block;
             margin: 2% auto;
           }
           input[type="text"] {
-            width: 50%;
+            width: 57%;
             font-size: 15pt;
           }
           input[type="submit"] {
-            width: 30%;
+            width: 40%;
             font-size: 15pt;
           }
         }
         section:last-of-type {
-          max-width: 420px;
+          max-width: none;
           img {
-            width: 50%;
+            width: 45%;
+          }
+        }
+      }
+      #decks {
+        #succes {
+          background-color: #4f5954;
+          color: white;
+          text-align: center;
+          padding: 0.5%;
+        }
+        section:first-of-type {
+          h2 {
+            margin: 4% 0;
+            color: white;
+            font-size: 1.7em;
+            text-align: center;
+          }
+        }
+        section:last-of-type {
+          max-width: none;
+          a {
+            margin: 5% auto;
+          }
+          div {
+            h2 {
+              font-size: 1.2em;
+            }
+          }
+        }
+        form {
+          justify-content: center;
+          input {
+            margin: 4% 1%;
+            padding: 10px;
+            border: 0;
+          }
+          input[type="text"] {
+            margin: 2% 1%;
+            width: 30%;
+          }
+          button[type="submit"] {
+            margin: 2% 1%;
+            padding: 10px;
+            border: 0;
+          }
+        }
+      }
+      #oneDeck {
+        #succes {
+          font-size: 1.3em;
+          text-align: center;
+          padding: 1%;
+        }
+        #popUp {
+          position: fixed;
+          top: 30%;
+          left: 0px;
+          width: 100%;
+          #popUpImage {
+            width: 40%;
+          }
+          h2 {
+            position: fixed;
+            top: 33%;
+            left: 45%;
+          }
+          button {
+            font-size: 28px;
+            font-weight: bold;
+            padding: 9px 15px;
+            text-decoration: none;
+            position: fixed;
+            top: 33%;
+            right: 5%;
+          }
+          button[type="submit"] {
+            position: fixed;
+            top: 65%;
+            right: 5%;
+          }
+          label {
+            position: fixed;
+            top: 40%;
+            left: 45%;
+            font-size: 1.4em;
+            color: white;
+          }
+          input[type="number"] {
+            position: fixed;
+            font-size: 1em;
+            top: 45%;
+            left: 45%;
+            width: 20%;
+          }
+        }
+        section:first-of-type {
+          h2 {
+            margin: 5% 0;
+            color: white;
+            font-size: 1.8em;
+            text-align: center;
+          }
+        }
+        section:last-of-type {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          margin: 0 auto 3% auto;
+          img {
+            width: 40%;
+            transition: 0.5s;
           }
         }
       }
