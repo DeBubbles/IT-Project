@@ -11,7 +11,7 @@ const app = express();
 
 const url = require("url");
 
-app.set("port", 3000);
+app.set("port", process.env.PORT || 3000);
 app.set("view engine", "ejs");
 
 app.listen(app.get("port"), () =>
