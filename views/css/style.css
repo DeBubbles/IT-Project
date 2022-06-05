@@ -431,7 +431,7 @@ html body footer p {
   padding: 1%;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 600px) and (hover: none) {
   html body header {
     display: block;
   }
@@ -501,7 +501,7 @@ html body footer p {
   }
   html body #card-grid #popUp label {
     position: fixed;
-    top: 40%;
+    top: 45%;
     left: 45%;
     font-size: 1.4em;
     color: white;
@@ -509,7 +509,7 @@ html body footer p {
   html body #card-grid #popUp input[type="number"] {
     position: fixed;
     font-size: 1em;
-    top: 45%;
+    top: 50%;
     left: 45%;
     width: 20%;
   }
