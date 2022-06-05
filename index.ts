@@ -1,3 +1,5 @@
+import { stringify } from "querystring";
+
 const { MongoClient } = require("mongodb");
 const uri: string =
   "mongodb+srv://bubbles:wYUdRX5ruBPE@maincluster.tbehy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
@@ -393,6 +395,8 @@ app.post("/mtg/addCard", async (req: any, res: any) => {
 
 const inString = (cards: object, search: string) => {
   let values = Object.values(cards);
+  let string = String(values);
   if (values.indexOf(search) !== -1) return true;
+  else if (string.includes(search)) return true;
   else return false;
 };

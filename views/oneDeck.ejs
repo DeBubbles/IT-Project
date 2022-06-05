@@ -27,7 +27,7 @@
       <ul>
         <li><a href="/mtg">Home</a></li>
         <li><a href="../decks" id="active">Decks</a></li>
-        <li><a href="../draw">DrawTest</a></li>
+        <li><a href="#" onclick="clickError()">DrawTest</a></li>
       </ul>
     </nav>
   </header>
@@ -115,6 +115,9 @@
 
     function closeClick() {
       document.getElementById("popUp").style.visibility = "hidden";
+    }
+    function clickError() {
+      alert("Deze functie is uitgeschakeld");
     }
 
     function deleteFunc() {

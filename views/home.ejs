@@ -27,7 +27,7 @@
       <ul>
         <li><a href="/mtg" id="active">Home</a></li>
         <li><a href="../mtg/decks">Decks</a></li>
-        <li><a href="../mtg/draw">DrawTest</a></li>
+        <li><a href="#" onclick="clickError()">DrawTest</a></li>
       </ul>
     </nav>
   </header>
@@ -106,14 +106,12 @@
       document.getElementById("titleForm").setAttribute("value", alt);
       document.getElementById("imgUrlForm").setAttribute("value", src);
     }
+    function clickError() {
+      alert("Deze functie is uitgeschakeld");
+    }
 
     function closeClick() {
       document.getElementById("popUp").style.visibility = "hidden";
     }
   </script>
 </body>
-
-<!-- popUp moet responsive worden -->
-<!-- description moet erbij komen -->
-
-<!-- Call functions ejs -> typescript -->
