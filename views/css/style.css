@@ -431,6 +431,84 @@ html body footer p {
   padding: 1%;
 }
 
+@media (max-width: 1024px) {
+  html body #card-grid #popUp {
+    position: fixed;
+    height: 650px;
+    top: 10%;
+    left: 10%;
+    width: 70%;
+  }
+  html body #card-grid #popUp #popUpImage {
+    position: fixed;
+    top: 15%;
+    left: 28%;
+    width: 20%;
+  }
+  html body #card-grid #popUp h2 {
+    position: fixed;
+    top: 12%;
+    left: 30%;
+  }
+  html body #card-grid #popUp button:first-of-type {
+    width: 10%;
+    display: block;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 1% 3%;
+    text-decoration: none;
+    position: static;
+  }
+  html body #card-grid #popUp button[type="submit"] {
+    position: static;
+    margin-top: 10%;
+    margin-left: 25%;
+    width: 50%;
+  }
+  html body #card-grid #popUp select {
+    position: static;
+    margin-left: 10%;
+    margin-top: 60%;
+    width: 30%;
+    height: 40px;
+  }
+  html body #card-grid #popUp label {
+    position: static;
+    font-size: 1.4em;
+    color: white;
+  }
+  html body #card-grid #popUp input[type="number"] {
+    position: static;
+    margin-top: 60%;
+    font-size: 1em;
+    width: 20%;
+  }
+  html body #card-grid section:first-of-type form {
+    display: block;
+  }
+  html body #card-grid section:first-of-type form input {
+    margin: 2% auto;
+  }
+  html body #card-grid section:first-of-type form input[type="text"] {
+    display: block;
+    width: 70%;
+    font-size: 15pt;
+  }
+  html body #card-grid section:first-of-type form button[type="submit"] {
+    margin: 2% 20%;
+    width: 40%;
+    font-size: 15pt;
+  }
+  html body #card-grid section:last-of-type {
+    max-width: none;
+  }
+  html body #card-grid section:last-of-type img:hover {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
 @media (max-width: 600px) and (hover: none) {
   html body header {
     display: block;
@@ -501,30 +579,30 @@ html body footer p {
     left: 5%;
   }
   html body #card-grid #popUp button[type="submit"] {
-    position: fixed;
-    top: 75%;
-    right: 25%;
+    position: static;
+    margin-top: 10%;
     width: 50%;
   }
   html body #card-grid #popUp select {
-    position: fixed;
-    top: 65%;
-    left: 10%;
+    position: static;
+    margin-top: 80%;
+    margin-left: 5%;
     width: 30%;
     height: 40px;
   }
   html body #card-grid #popUp label {
-    position: fixed;
-    top: 60%;
-    left: 55%;
-    font-size: 1.4em;
+    position: static;
+    font-size: 2em;
+    top: 0;
+    margin-top: 0%;
+    margin-left: 5%;
     color: white;
   }
   html body #card-grid #popUp input[type="number"] {
-    position: fixed;
+    position: static;
     font-size: 1em;
-    top: 65%;
-    left: 55%;
+    margin-top: 80%;
+    margin-left: 5%;
     width: 30%;
   }
   html body #card-grid section:first-of-type form {
