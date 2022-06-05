@@ -350,7 +350,7 @@ html {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 600px) and (hover: none) {
   html {
     body {
       header {
@@ -457,6 +457,8 @@ html {
           max-width: none;
           img {
             width: 45%;
+          }
+          img {
           }
         }
       }
