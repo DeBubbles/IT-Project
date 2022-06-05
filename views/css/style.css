@@ -533,6 +533,11 @@ html body footer p {
   html body #card-grid section:last-of-type img {
     width: 45%;
   }
+  html body #card-grid section:last-of-type img:hover {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
   html body #decks #succes {
     background-color: #4f5954;
     color: white;

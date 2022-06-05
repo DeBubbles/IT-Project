@@ -458,7 +458,9 @@ html {
           img {
             width: 45%;
           }
-          img {
+          img:hover {
+            opacity: 1;
+            transform: none;
           }
         }
       }
