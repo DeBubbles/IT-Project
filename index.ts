@@ -1,7 +1,7 @@
-const { MongoClient } = require("mongodb");
+const {MongoClient} = require("mongodb");
 const uri: string =
   "mongodb+srv://bubbles:wYUdRX5ruBPE@maincluster.tbehy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useUnifiedTopology: true });
+const client = new MongoClient(uri, {useUnifiedTopology: true});
 
 const express = require("express");
 const axios = require("axios");
@@ -17,8 +17,8 @@ app.listen(app.get("port"), () =>
 );
 
 app.use(express.static(__dirname + "/views"));
-app.use(express.json({ limit: "1mb" }));
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json({limit: "1mb"}));
+app.use(express.urlencoded({extended: true}));
 
 app.get("/", (req: any, res: any) => {
   res.type("text/html");
@@ -150,7 +150,7 @@ app.get("/mtg/decks", async (req: any, res: any) => {
       const coll = db.collection(collections[index].name);
 
       const cards = await coll.find({}).toArray();
-      cardsArray.push({ title: collections[index].name, url: cards[1].url });
+      cardsArray.push({title: collections[index].name, url: cards[1].url});
     }
   } catch (e) {
     console.error(e);
@@ -164,8 +164,21 @@ app.get("/mtg/decks", async (req: any, res: any) => {
 });
 
 app.get("/mtg/draw", async (req: any, res: any) => {
+  let collections;
+  try {
+    await client.connect();
+
+    const db = client.db("IT-Project");
+    collections = await db.listCollections().toArray();
+  } catch (e) {
+    console.error(e);
+  } finally {
+    await client.close();
+  }
   res.type("text/html");
-  res.render("draw");
+  res.render("draw", {
+    collections: collections,
+  });
 });
 
 app.post("/mtg/createDeck", async (req: any, res: any) => {

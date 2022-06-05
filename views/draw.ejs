@@ -30,6 +30,31 @@
       </ul>
     </nav>
   </header>
+  <main id="draw">
+    <form>
+      <select id="collections">
+        <% for (let i = 0;i < collections.length; i++ ){%>
+        <option value="<%= collections[i].name %>">
+          Deck: <%= collections[i].name %>
+        </option>
+        <%}%>
+      </select>
+    </form>
+    <section>
+      <section>
+        <figure>
+          <img src="../img/back-of-card.jpg" alt="" />
+        </figure>
+      </section>
+      <input type="submit" value="Draw" />
+      <input type="submit" value="reset" />
+      <section>
+        <figure>
+          <img src="../img/back-of-card.jpg" alt="" />
+        </figure>
+      </section>
+    </section>
+  </main>
   <footer>
     <p>IT-Project 2021 - 2022</p>
     <p>&copy; Orzhov Cartel</p>
