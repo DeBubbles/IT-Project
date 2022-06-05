@@ -583,31 +583,29 @@ html {
             top: 12%;
             left: 5%;
           }
+          #deleteButton {
+            position: fixed;
+            top: 70%;
+            right: 23%;
+          }
           button[type="submit"] {
             position: fixed;
-            top: 75%;
-            right: 25%;
+            top: 80%;
+            right: 23%;
             width: 50%;
-          }
-          select {
-            position: fixed;
-            top: 65%;
-            left: 10%;
-            width: 30%;
-            height: 40px;
           }
           label {
             position: fixed;
-            top: 60%;
-            left: 55%;
+            top: 59%;
+            left: 33%;
             font-size: 1.4em;
             color: white;
           }
           input[type="number"] {
             position: fixed;
             font-size: 1em;
-            top: 65%;
-            left: 55%;
+            top: 63%;
+            left: 33%;
             width: 30%;
           }
         }
