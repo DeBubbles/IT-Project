@@ -573,6 +573,39 @@ html body footer p {
     padding: 10px;
     border: 0;
   }
+  html body #draw section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  html body #draw #collections {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: first baseline;
+        -ms-flex-pack: first baseline;
+            justify-content: first baseline;
+    margin-left: 10%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 15%;
+    font-size: 1.4em;
+  }
+  html body #draw input {
+    border: #262621 10px solid;
+    margin-top: 15%;
+    margin-bottom: 15%;
+    width: 7%;
+  }
   html body #oneDeck #succes {
     font-size: 1.3em;
     text-align: center;

@@ -289,8 +289,20 @@ app.post("/mtg/decks/modify", async (req: any, res: any) => {
 });
 
 app.get("/mtg/draw", async (req: any, res: any) => {
-  res.type("text/html");
-  res.render("draw");
+  let collections;
+  try {
+    await client.connect();
+
+    const db = client.db("IT-Project");
+    collections = await db.listCollections().toArray();
+  } catch (e) {
+    console.error(e);
+  } finally {
+    await client.close();
+  }
+  res.render("draw", {
+    collections: collections,
+  });
 });
 
 app.post("/mtg/createDeck", async (req: any, res: any) => {
