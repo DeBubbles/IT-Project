@@ -473,17 +473,21 @@ html body footer p {
   }
   html body #card-grid #popUp {
     position: fixed;
-    top: 30%;
+    height: 650px;
+    top: 10%;
     left: 0px;
     width: 100%;
   }
   html body #card-grid #popUp #popUpImage {
+    position: fixed;
+    top: 15%;
+    left: 28%;
     width: 40%;
   }
   html body #card-grid #popUp h2 {
     position: fixed;
-    top: 33%;
-    left: 45%;
+    top: 12%;
+    left: 33%;
   }
   html body #card-grid #popUp button {
     font-size: 28px;
@@ -491,27 +495,35 @@ html body footer p {
     padding: 9px 15px;
     text-decoration: none;
     position: fixed;
-    top: 33%;
+    top: 12%;
     right: 5%;
   }
   html body #card-grid #popUp button[type="submit"] {
     position: fixed;
+    top: 75%;
+    right: 25%;
+    width: 50%;
+  }
+  html body #card-grid #popUp select {
+    position: fixed;
     top: 65%;
-    right: 5%;
+    left: 10%;
+    width: 30%;
+    height: 40px;
   }
   html body #card-grid #popUp label {
     position: fixed;
-    top: 45%;
-    left: 45%;
+    top: 60%;
+    left: 55%;
     font-size: 1.4em;
     color: white;
   }
   html body #card-grid #popUp input[type="number"] {
     position: fixed;
     font-size: 1em;
-    top: 50%;
-    left: 45%;
-    width: 20%;
+    top: 65%;
+    left: 55%;
+    width: 30%;
   }
   html body #card-grid section:first-of-type form {
     display: block;
